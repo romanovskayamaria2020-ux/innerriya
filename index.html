@@ -77,30 +77,7 @@ body{margin:0}
 #iy .menu a:hover{color:var(--peach)}
 #iy .menu .x{position:absolute;right:24px;top:22px;width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;background:none;font-size:26px;line-height:1;color:var(--peach)}
 #iy .menu .starsep{margin:6px 0}
-#iy .hero{padding:132px 24px 56px;min-height:700px}
-#iy .orb{position:absolute;right:-130px;top:34px;width:370px;height:370px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,166,107,.45);box-shadow:0 0 90px rgba(201,166,107,.22);z-index:0}
-#iy .orb .ph{background-position:60% 40%;filter:brightness(.8) contrast(1.05)}
-#iy .orb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,8,7,.88),rgba(10,8,7,.1) 65%)}
-#iy .hero h1{font-size:43px;line-height:1.06;max-width:9em;margin-top:92px;background:var(--foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-bottom:.1em;letter-spacing:.01em}
-#iy .stars3{display:flex;gap:10px;margin:28px 0 22px}
-#iy .stars3 i{width:20px;height:20px;background:var(--star-fill) center/contain no-repeat}
-#iy .hero .meta{color:var(--text);font-size:15px;line-height:1.7}
-#iy .hero .meta span{display:block;color:var(--muted)}
-#iy .hero .lead{margin-top:26px;max-width:21em;font-size:16px;color:var(--muted)}
-#iy .hero .btn{margin-top:36px;min-width:230px}
-@media (prefers-reduced-motion:no-preference){#iy .hero h1,#iy .stars3,#iy .hero .meta,#iy .hero .lead,#iy .hero .btn{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-#iy .stars3{animation-delay:.1s}
-#iy .hero .meta{animation-delay:.18s}
-#iy .hero .lead{animation-delay:.26s}
-#iy .hero .btn{animation-delay:.34s}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
-#iy .zig{list-style:none;position:relative}
-#iy .zig li{display:flex;align-items:center;gap:22px;margin-bottom:28px}
-#iy .zig li:nth-child(even){flex-direction:row-reverse;text-align:right}
-#iy .tile{flex:none;width:136px;height:136px;border-radius:34px;overflow:hidden;border:1px solid var(--line2);background:#000;box-shadow:0 14px 40px rgba(0,0,0,.5)}
-#iy .tile .ph{filter:brightness(.9) contrast(1.04)}
-#iy .zig b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.15;color:var(--peach);margin-bottom:4px}
-#iy .zig span{font-size:14px;color:var(--muted);line-height:1.5;display:block}
+
 #iy .center{text-align:center;margin-top:12px}
 #iy .frame{padding:10px;border-radius:44px;background:var(--foil);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 80px rgba(201,166,107,.15)}
 #iy .car{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:34px;scrollbar-width:none;background:#000}
@@ -194,9 +171,39 @@ body{margin:0}
 #iy .i-dice-colors{background-image:var(--i-dice-colors)}
 #iy [id]{scroll-margin-top:12px}
 @media (min-width:600px){
-#iy .orb{right:16px;width:320px;height:320px}
 #iy .sec>.glow{left:50%;right:auto;margin-left:-230px}
 }
+
+/* ===== первые два экрана в стиле прайс-листа ===== */
+#iy .hero{padding:0 0 56px;text-align:center}
+#iy .himg{position:relative;height:470px;overflow:hidden}
+#iy .himg .ph{background-position:62% 30%;filter:brightness(.86) contrast(1.05)}
+#iy .himg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,7,.85) 0,rgba(10,8,7,0) 24%,rgba(10,8,7,0) 52%,#0a0807 97%),linear-gradient(90deg,rgba(10,8,7,.55),rgba(10,8,7,0) 45%)}
+#iy .hero h1{position:relative;z-index:2;margin:-96px 24px 0;font-size:34px;line-height:1.16;letter-spacing:.07em;text-transform:uppercase;background:var(--foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-bottom:.1em}
+#iy .hl{position:relative;height:1px;margin:24px 24px 0;background:linear-gradient(90deg,transparent,#54402a 14%,#54402a 86%,transparent)}
+#iy .hl::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:var(--gold);transform:translate(-50%,-50%) rotate(45deg)}
+#iy .hero .lead{position:relative;z-index:1;max-width:21em;margin:26px auto 0;font-size:16px;color:var(--muted)}
+#iy .panel{position:relative;z-index:1;margin:30px 24px 0;border:1px solid #54402a;border-radius:26px;background:linear-gradient(160deg,#17110c,#0d0a08);overflow:hidden}
+#iy .panel div{padding:15px 20px;font-size:15px;color:var(--text)}
+#iy .panel div+div{border-top:1px solid #3d2f20}
+#iy .hero .btn{position:relative;z-index:1;display:flex;max-width:260px;margin:30px auto 0}
+@media (prefers-reduced-motion:no-preference){
+#iy .himg,#iy .hero h1,#iy .hero .lead,#iy .panel,#iy .hero .btn{animation:iyrise 1s cubic-bezier(.2,.7,.2,1) both}
+#iy .hero h1{animation-delay:.1s}#iy .hero .lead{animation-delay:.2s}#iy .panel{animation-delay:.28s}#iy .hero .btn{animation-delay:.36s}
+@keyframes iyrise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+#iy .wait{position:relative;overflow:hidden}
+#iy .wait .sbg{position:absolute;left:0;top:70px;bottom:0;width:78%;z-index:0;-webkit-mask-image:linear-gradient(90deg,#000 0,transparent 100%);mask-image:linear-gradient(90deg,#000 0,transparent 100%);opacity:.42}
+#iy .wait .sbg .ph{background-position:30% 62%;filter:brightness(.7)}
+#iy .wait h2{position:relative;z-index:1;margin:0;text-align:center;text-transform:uppercase;letter-spacing:.07em;font-size:30px}
+#iy .wait .hl{margin:20px 0 0;z-index:1}
+#iy .rows{position:relative;z-index:1;list-style:none;margin:8px 0 0;padding:0}
+#iy .rows li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:26px 4px;border-bottom:1px solid #5a452c}
+#iy .rows b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.15;letter-spacing:.04em;text-transform:uppercase;color:var(--text)}
+#iy .rows .d{display:block;margin-top:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+#iy .rows .n{padding-left:24px;border-left:1px solid #5a452c;font-family:var(--serif);font-size:40px;line-height:1;color:var(--peach)}
+#iy .wait .center{position:relative;z-index:1;margin-top:34px}
 </style>
 <div class="tw" id="iy">
 <div class="page" id="top">
@@ -218,27 +225,23 @@ body{margin:0}
 </nav>
 
 <header class="sec hero">
-  <div class="orb"><div class="ph i-tarot" role="img" aria-label="Расклад на таро"></div></div>
-  <span class="spark" style="left:30px;top:96px;width:14px;height:14px"></span>
+  <div class="himg"><div class="ph i-tarot" role="img" aria-label="Расклад на таро"></div></div>
   <h1>Консультации на таро и кубиках</h1>
-  <div class="stars3"><i></i><i></i><i></i></div>
-  <p class="meta">5+ лет практики<span>1000+ клиентов · онлайн</span><span>100% конфиденциально</span></p>
+  <div class="hl"></div>
   <p class="lead">Вы приносите ситуацию — я возвращаю структурную схему, по которой можно принять решение без сомнений.</p>
-  <a class="btn block" href="#book" style="max-width:260px">Записаться</a>
+  <div class="panel"><div>5+ лет практики</div><div>1000+ клиентов · онлайн</div><div>100% конфиденциально</div></div>
+  <a class="btn" href="#book">Записаться</a>
 </header>
 
-<div class="starsep"><i></i></div>
-
-<section class="sec" id="tarot">
-  <div class="glow gl"></div>
-  <span class="spark" style="left:14px;top:150px"></span>
-  <span class="spark" style="right:20px;top:420px;width:14px;height:14px"></span>
-  <h2 class="rv">Что вас ждёт:</h2>
-  <ul class="zig rv">
-    <li><div class="tile"><div class="ph i-tarot" aria-hidden="true" style="background-position:62% 55%"></div></div><div><b>Расклады на таро</b><span>образы, архетипы и символика</span></div></li>
-    <li><div class="tile"><div class="ph i-dice-colors" aria-hidden="true" style="background-position:50% 78%"></div></div><div><b>Чакральные кубики</b><span>система трипликады, D20</span></div></li>
-    <li><div class="tile"><div class="ph i-dice-candle" aria-hidden="true" style="background-position:50% 70%"></div></div><div><b>Структурный разбор</b><span>без мистификации и давления</span></div></li>
-    <li><div class="tile"><div class="ph i-portrait" aria-hidden="true" style="background-position:50% 30%"></div></div><div><b>Личная консультация онлайн</b><span>индивидуально, без шаблонов</span></div></li>
+<section class="sec wait" id="tarot">
+  <div class="sbg"><div class="ph i-dice-candle" aria-hidden="true"></div></div>
+  <h2>Что вас ждёт:</h2>
+  <div class="hl"></div>
+  <ul class="rows">
+    <li><div><b>Расклады на таро</b><span class="d">образы, архетипы и символика</span></div><div class="n">1</div></li>
+    <li><div><b>Чакральные кубики</b><span class="d">система трипликады, D20</span></div><div class="n">2</div></li>
+    <li><div><b>Структурный разбор</b><span class="d">без мистификации и давления</span></div><div class="n">3</div></li>
+    <li><div><b>Личная консультация онлайн</b><span class="d">индивидуально, без шаблонов</span></div><div class="n">4</div></li>
   </ul>
   <div class="center"><a class="btn" href="#price">Прайс-лист</a></div>
 </section>
